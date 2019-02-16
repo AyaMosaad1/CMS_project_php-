@@ -29,7 +29,7 @@ include "includes/admin_header.php";
             }
             else{ $source ='';}
 
-            switch ($source) {
+            switch ( $source ) {
               case 'add_post':
           include "includes/add_post.php";
                 break;
@@ -38,8 +38,9 @@ include "includes/admin_header.php";
            include "includes/edit_post.php";
                 break;
 
+
               default:
-              include "includes/view_all_posts.php";
+              include "includes/view_all_comments.php";
                 break;
             }
 
@@ -51,7 +52,7 @@ include "includes/admin_header.php";
                 <!-- /.row -->
 
             </div>
-
+ 
 
       <!-- /.container-fluid -->
 

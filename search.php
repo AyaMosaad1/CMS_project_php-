@@ -88,11 +88,10 @@ $post_content = $row['post_title'];
 }
 
 }      
-}
-        
+}       
     ?> 
-                    <!-- Pager -->
-                <ul class="pager">
+                 <!-- Pager -->
+               <ul class="pager">
                     <li class="previous">
                         <a href="#">&larr; Older</a>
                     </li>

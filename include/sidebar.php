@@ -30,24 +30,53 @@ if ($count == 0){
     echo"SOME RESULT";
 }      
 }
+ 
        */ 
         ?>
-                <!-- Blog Search Well -->
 
+
+
+                <!-- search -->
                 <div class="well">
-                    <h4>Blog Search</h4>
-                    <form action="search.php" method="post">
-                    <div class="input-group">
-                        <input name= "search" type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" name="submit" type="submit">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
+                    <h4>Blog search </h4>
+                    <form action="search.php" method="post" class= "form-group">
+
+                    <div class="form-group">
+                        <input name= "search" type="text" class="form-control" >
                     </div>
+
+
+<div class="form-group">
+      <span class="input-group-btn">
+                            <button class="btn btn-primary" name="search" type="submit">search</button>
+                        </span>
+</div>
                     </form> <!--search form-->
                     <!-- /.input-group -->
                 </div>
+
+
+                <!-- login -->
+                <div class="well">
+                    <h4>Blog login </h4>
+                    <form action="include/login.php" method="post" class= "form-group">
+
+                    <div class="form-group">
+                        <input name= "username" type="text" class="form-control" placeholder = "Enter username">
+                    </div>
+
+                      <div class="form-group">
+                        <input name= "password" type="password" class="form-control" placeholder = "Enter password">
+                    </div> 
+                 <div class="form-group">
+                  <span class="input-group-btn">
+                            <button class="btn btn-primary" name="login" type="submit">login</button>
+                        </span>
+                  </div>
+                    </form> <!--search form-->
+                    <!-- /.input-group -->
+                </div>
+
 
 <!-- Blog Categories Well -->
                 <div class="well">

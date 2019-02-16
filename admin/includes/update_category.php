@@ -22,18 +22,18 @@ $cat_title = $row['cat_title'];
 }
 ?>
 
+
 <?php
 if(isset($_POST['update_category'])) {   
     $the_cat_title = $_POST['cat_title'];
     $query = "UPDATE categories SET cat_title ='{$the_cat_title}' WHERE cat_id ={$cat_id}";
    
 $update_quary = mysqli_query($connection,$query);
-    if (! $update_quary) {
+    if (!$update_quary) {
           die('QUERY FAILED' . mysqli_error($connection));
     }
 }
-?>
-    
+?>    
     </div>
 
 <div class="form-group">   

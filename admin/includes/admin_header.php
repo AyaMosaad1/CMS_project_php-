@@ -5,6 +5,17 @@ include "functions.php";
  
 #to redirect , to use header or outher functions 
 ob_start(); ?>
+<?php session_start(); ?>
+
+
+<?php
+if(isset($_SESSION['user_role'])) {
+
+
+
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

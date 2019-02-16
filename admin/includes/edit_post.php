@@ -40,16 +40,16 @@ while($row = mysqli_fetch_assoc($select_image)) {
 }*/
 
 
-$quary ="UPDATE posts SET";
-$quary .= "post_title = '{$post_title}', ";
-$quary .= "post_category_id = '{$post_category_id}', ";
-$quary .= "post_date = now(), ";
-$quary .= "post_author = '{$post_author}', ";
-$quary .= "post_status = '{$post_status}', ";
-$quary .= "post_tags= '{$post_tags}', ";
-$quary .= "post_content = '{$post_content}' ";
+$query ="UPDATE posts SET";
+$query .= "post_title = '{$post_title}', ";
+$query .= "post_category_id = '{$post_category_id}', ";
+$query .= "post_date = now(), ";
+$query .= "post_author = '{$post_author}', ";
+$query .= "post_status = '{$post_status}', ";
+$query .= "post_tags= '{$post_tags}', ";
+$query .= "post_content = '{$post_content}' ";
 //$quary .= "post_image = '{$post_image}' ";
-$quary .= "WHERE post_id = {$the_post_id} ";
+$query .= "WHERE post_id = {$the_post_id} ";
 
 $update_post = mysqli_query($connection,$query);
 confirmQuery($update_post);
@@ -63,11 +63,11 @@ confirmQuery($update_post);
 
 	<div class="form-group">
 		<label for="title"> Post Title </label>
-		<input value="<?php echo $post_title; ?>" type="text" name="title" class="form-control">
+		<input type="text" name="title" class="form-control">
 	</div>
- 
+
 	<div class="form-group">
-		<select name="" id="">
+		<select name="post_category" id="">
 			<?php
 $query = "SELECT * FROM categories";
 $select_categories = mysqli_query($connection,$query);
@@ -76,49 +76,45 @@ $select_categories = mysqli_query($connection,$query);
 while($row = mysqli_fetch_assoc($select_categories)) {
 	$cat_id=  $row['cat_id'];
     $cat_title= $row['cat_title'];
-    echo "<option value=''>{$cat_title}</option>";
+    echo "<option value ='$cat_id'>{$cat_title}</option>";
     } 
 ?>
 		</select>
 		</div>
 
-	<div class="form-group">
-		<label for="post_category">Post category Id</label>
-		<input value="<?php echo $post_category_id; ?>" type="number" name="post_category_id" class="form-control">
-	</div>
 
 	<div class="form-group">
-		<label for="title">Post Author</label>
-		<input type="text" value="<?php echo $post_author; ?>" name="author" class="form-control">
+		<label for="author">Post Author</label>
+		<input type="text" name="author" class="form-control">
 	</div>
 
 	<div class="form-group">
 		<label for="post_status">post status</label>
-		<input value="<?php echo $post_status;?>" type="text" name="post_status" class="form-control">
+		<input type="text" name="post_status" class="form-control">
 	</div>
 
 
 	<div class="form-group">
 		<label for="post_image">post Image</label>
-		<img src="../images/<?php echo $post_image; ?>" width="100" alt =""> 
+		<input type="file" name="image" class="form-control">
 	</div>
 
 	<div class="form-group">
 		<label for="post_tags">Post Tags</label>
-		<input value="<?php echo $post_tags; ?>" type="text" name="post_tags" class="form-control">
+		<input type="text" name="post_tags" class="form-control">
 	</div>
 
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea name="post_content" class="form-control" id="" cols="30" rows="10"> <?php echo $post_content; ?> </textarea> 
-		
+		<textarea name="post_content" class="form-control" id="" cols="30" rows="10"></textarea> 
 	</div>
 
 <div class="form-group">   
-<input class="btn btn-primary" type="submit" name="update_post" value="Edit post">
+<input class="btn btn-primary" type="submit" name="create_post" value="create post">
     </div>
 
 </form>
 	</div>
 </div>
+
 

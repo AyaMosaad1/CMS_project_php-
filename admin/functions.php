@@ -3,7 +3,7 @@
 function confirmQuery($result)
 {
 if (!$result) {
-          die('QUERY FAILED' . mysqli_error($connection));
+die('QUERY FAILED' . mysqli_error($connection));
     }
 
 	
@@ -11,8 +11,8 @@ if (!$result) {
 
 function insertCategory()
 {
-	global $connection;
-	    #to creat new category
+global $connection;
+ #to creat new category
 if (isset($_POST['submit'])){
 $cat_title = $_POST['cat_title'];
 

@@ -9,22 +9,31 @@ if(isset($_POST['create_post'])) {
 	$post_tags=$_POST['post_tags'];
 	$post_content=$_POST['post_content'];
 	$post_date = date ('d-m-y');
-	$post_comment_count = 4 ;
+
 
 //for images  
 move_uploaded_file($post_image_temp,"../images/$post_image");
 
 
-$query = "INSERT  INTO  posts (post_category_id, post_title, post_author, post_date, post_image ,post_content,post_tags ,post_comment_count,post_status)";
+$query = "INSERT  INTO  posts(post_category_id, post_title, post_author, post_date, post_image ,post_content,post_tags ,post_status)";
 
 //use '' in strings only
-$query .= "VALUES('{$post_category_id}','{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}' ,'{$post_comment_count}','{$post_status}') ";
+$query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_status}') ";
 $create_post_query = mysqli_query($connection,$query );
 
 if (!$create_post_query)
 {
     die('QUERY FAILED' . mysqli_error($connection));
 }
+
+
+$query = "UPDATE posts SET post_comment_count = post_comment_count + 1";
+$query .= "WHERE post_id = $the_post_id ";
+$update_comment_count = mysqli_query($connection,$query);
+
+
+
+
 }
 
 ?>
@@ -39,7 +48,7 @@ if (!$create_post_query)
 	</div>
 
 	<div class="form-group">
-		<select name="" id="">
+		<select name="post_category" id="">
 			<?php
 $query = "SELECT * FROM categories";
 $select_categories = mysqli_query($connection,$query);
@@ -48,7 +57,7 @@ $select_categories = mysqli_query($connection,$query);
 while($row = mysqli_fetch_assoc($select_categories)) {
 	$cat_id=  $row['cat_id'];
     $cat_title= $row['cat_title'];
-    echo "<option value=''>{$cat_title}</option>";
+    echo "<option value ='$cat_id'>{$cat_title}</option>";
     } 
 ?>
 		</select>
